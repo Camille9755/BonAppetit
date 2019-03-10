@@ -44,7 +44,8 @@
               </section>
               <section class="login_message">
                 <input type="text" maxlength="11" placeholder="验证码" v-model="captcha">
-                <img class="get_verification" src="./images/captcha.svg" alt="captcha">
+                <img class="get_verification" src="http://localhost:7321/captcha" alt="captcha"
+                     @click="getCaptcha" ref="captcha">
               </section>
             </section>
           </div>
@@ -62,6 +63,9 @@
 
 <script>
   import AlertTip from '../../components/AlertTip/AlertTip'
+  import {reqSendCode,reqSmsLogin,reqPwdLogin} from '../../api'
+
+
     export default {
         data(){
           return {
@@ -83,7 +87,7 @@
           }
         },
         methods:{
-          getCode(){
+          async getCode(){
             if(this.computeTime===0){
               clearInterval(this.intervalId)
               this.computeTime=60
@@ -91,42 +95,68 @@
                 this.computeTime--
               },1000)
             }
+
+            //ajax请求
+            const result = await reqSendCode(this.phone)
+            if(result.code===1){
+              ifshowAlert('验证码获取失败')
+              if(this.computeTime){
+                this.computeTime=0
+                clearInterval(this.intervalId)
+              }
+            }
+
           },
 
           closeTip(){
             this.showAlert=false
             this.alertText=''
           },
+          getCaptcha(){
+            this.$refs.captcha.src="http://localhost:7321/captcha?time="+Date.now()
+          },
           ifshowAlert(alertText) {
             this.showAlert = true
             this.alertText = alertText
           },
 
-          login(){
+          async login(){
+            let result
             if(this.loginWay){
               if(!this.rightPhone) {
-                // 手机号不正确
                 this.ifshowAlert('手机号不正确')
                 return
-              } else if(!/^\d{6}$/.test(code)) {
-                // 验证必须是6位数字
+              } else if(!/^\d{6}$/.test(this.code)) {
                 this.ifshowAlert('验证必须是6位数字')
                 return
               }
+              result = await reqSmsLogin(this.phone,this.code)
             }else{
-              if(!this.name) {
-                // 用户名必须指定
+              const {name,pwd,captcha} = this
+              if(!name) {
                 this.ifshowAlert('用户名必须指定')
                 return
-              } else if(!this.pwd) {
-                // 密码必须指定
+              } else if(!pwd) {
                 this.ifshowAlert('密码必须指定')
                 return
-              } else if(!this.captcha) {
-                // 验证码必须指定
+              } else if(!captcha) {
                 this.ifshowAlert('验证码必须指定')
                 return
               }
+              result = await reqPwdLogin({name,pwd,captcha})
+            }
+
+            if(result.code===0){
+              //存user信息
+              this.userInfo = result.data
+              this.$store.dispatch('recordUserInfo',this.userInfo)
+              this.$router.replace('/profile')
+            }else{
+              //更新失败信息，显示弹框
+              if(this.loginWay){
+                this.getCaptcha()
+              }
+              this.ifshowAlert(result.msg)
             }
           }
 
