@@ -2,7 +2,7 @@
   <div class="shop-header">
     <nav class="shop-nav" :style="{backgroundImage:`url(${info.bgImg})`}">
       <a class="back">
-        <i class="iconfont icon-arrow_left"></i>
+        <i class="iconfont icon-arrow_left" @click="$router.back()"></i>
       </a>
     </nav>
     <div class="shop-content" >

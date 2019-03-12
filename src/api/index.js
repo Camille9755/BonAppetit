@@ -20,3 +20,5 @@ export const reqShopRatings = () => ajax('/ratings')
 
 export const reqShopGoods = () => ajax('/goods')
 
+export const reqSearchShop = (geohash, keyword) => ajax(BASE_URL+'/search_shops', {geohash, keyword})
+

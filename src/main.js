@@ -3,13 +3,19 @@
 import Vue from 'vue'
 import App from './App'
 import {Button} from 'mint-ui'
+import VueLazyLoad from 'vue-lazyload'
 
 import './mock/mockServer'
+import './filters'
 import router from './router'
 import store from './store'
+import loading from './common/imgs/loading.gif'
 /* eslint-disable no-new */
 
 Vue.component(Button.name,Button)
+Vue.use(VueLazyLoad,{
+  loading
+})
 
 new Vue({
   el: '#app',

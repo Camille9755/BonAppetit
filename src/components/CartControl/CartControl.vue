@@ -1,13 +1,27 @@
 <template>
   <div class="cartcontrol">
-    <div class="iconfont icon-remove_circle_outline"></div>
-    <div class="cart-count">1</div>
-    <div class="iconfont icon-add_circle"></div>
+    <transition name="move">
+      <div class="iconfont icon-remove_circle_outline"
+           v-show="food.count"
+           @click.stop="upDateFoodCount(false)"></div>
+    </transition>
+    <div class="cart-count" v-show="food.count">{{food.count}}</div>
+    <div class="iconfont icon-add_circle" @click.stop="upDateFoodCount(true)"></div>
   </div>
 </template>
 
 <script>
-    export default {}
+    export default {
+      props:{
+        food:Object
+      },
+      methods:{
+        upDateFoodCount(isAdd){
+          const {food} = this
+          this.$store.dispatch('updateCount',{food,isAdd})
+        }
+      }
+    }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
