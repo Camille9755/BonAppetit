@@ -19,7 +19,7 @@
 <style lang="stylus" rel="stylesheet/stylus">
   @import "../../common/stylus/mixins.styl"
   .header //头部公共css
-    background-color #02a774
+    background-color #1c7aff
     position fixed
     z-index 100
     left 0

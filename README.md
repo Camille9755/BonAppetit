@@ -1,4 +1,4 @@
-# gshop
+# elm_imitation
 
 > A Vue.js project
 
