@@ -1,4 +1,4 @@
-  <template>
+<template>
   <div class="alert_container">
     <section class="tip_text_container">
       <div class="tip_icon">
@@ -95,7 +95,7 @@
         font-size 18px
         font-weight bold
         margin-top 10px
-        background-color #4cd964
+        background-color #1c7af7
         width 100%
         text-align center
         line-height 35px

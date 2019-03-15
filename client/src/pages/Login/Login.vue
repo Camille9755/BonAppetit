@@ -2,7 +2,7 @@
   <section class="loginContainer">
     <div class="loginInner">
       <div class="login_header">
-        <h2 class="login_logo">Camille外卖</h2>
+        <h2 class="login_logo">每餐美食</h2>
         <div class="login_header_title">
           <a href="javascript:;" :class="{on:loginWay}" @click="loginWay=true">短信登录</a>
           <a href="javascript:;" :class="{on:!loginWay}" @click="loginWay=false">密码登录</a>
@@ -24,7 +24,7 @@
               <input type="tel" maxlength="8" placeholder="验证码" v-model="code">
             </section>
             <section class="login_hint">
-              温馨提示：未注册硅谷外卖帐号的手机号，登录时将自动注册，且代表已同意
+              温馨提示：未注册每餐美食帐号的手机号，登录时将自动注册，且代表已同意
               <a href="javascript:;">《用户服务协议》</a>
             </section>
           </div>
@@ -181,7 +181,7 @@
         .login_logo
           font-size 40px
           font-weight bold
-          color #02a774
+          color #1c7aff
           text-align center
         .login_header_title
           padding-top 40px
@@ -193,9 +193,9 @@
             &:first-child
               margin-right 40px
             &.on
-              color #02a774
+              color #1c7aff
               font-weight 700
-              border-bottom 2px solid #02a774
+              border-bottom 2px solid #1c7aff
       .login_content
         >form
           >div
@@ -212,7 +212,7 @@
               outline 0
               font 400 14px Arial
               &:focus
-                border 1px solid #02a774
+                border 1px solid #1c7aff
             .login_message
               position relative
               margin-top 16px
@@ -256,7 +256,7 @@
                     float right
                     color #ddd
                 &.on
-                  background #02a774
+                  background #1c7aff
                 >.switch_circle
                   //transform translateX(27px)
                   position absolute
@@ -278,14 +278,14 @@
               font-size 14px
               line-height 20px
               >a
-                color #02a774
+                color #1c7aff
           .login_submit
             display block
             width 100%
             height 42px
             margin-top 30px
             border-radius 4px
-            background #4cd96f
+            background #1c7af7
             color #fff
             text-align center
             font-size 16px

@@ -126,7 +126,7 @@
         clearFix()
         position relative
         display block
-        background #02a774
+        background #1c7aff
         padding 20px 10px
         .profile_image
           float left
@@ -207,7 +207,7 @@
           border 0
           .info_data_top
             span
-              color #6ac20b
+              color #1c7af7
     .profile_my_order
       top-border-1px(#e4e4e4)
       margin-top 10px
@@ -225,13 +225,13 @@
             margin-left -10px
             font-size 30px
           .icon-order-s
-            color #02a774
+            color #1c7aff
           .icon-jifen
             color #ff5f3e
           .icon-vip
             color #f90
           .icon-fuwu
-            color #02a774
+            color #1c7aff
         .my_order_div
           width 100%
           border-bottom 1px solid #f1f1f1

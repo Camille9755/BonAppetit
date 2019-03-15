@@ -464,7 +464,7 @@
             align-items center
             &.activity-green
               .content-tag
-                background-color rgb(112, 188, 70)
+                background-color rgb(28, 122, 255)
             &.activity-red
               .content-tag
                 background-color rgb(240, 115, 115)

@@ -203,7 +203,7 @@
           &.not-enough
             background #2b333b
           &.enough
-            background #00b43c
+            background #1c7af7
             color #fff
     .ball-container
       .ball
