@@ -6,3 +6,5 @@
 * 采用模块化、 组件化、 工程化的模式开发
 ## 前端路由
 ![前端路由图示](http://m.qpic.cn/psb?/V11vAKCE2RVaMT/k6h.7w9db8DhjURmREMKgm3DPhitQo7BYY4A2xRdVPA!/b/dL8AAAAAAAAA&bo=fARHAnwERwIDCSw!&rf=viewer_4)
+## vue组件
+![vue组件图示](http://m.qpic.cn/psb?/V11vAKCE2RVaMT/pQ7jA8FZSXf1itBtg5Qdu1qXLbRIXsDQABWSUg89haM!/b/dL4AAAAAAAAA&bo=ngLLAZ4CywEDCSw!&rf=viewer_4)
